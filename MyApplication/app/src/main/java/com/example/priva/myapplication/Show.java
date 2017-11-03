@@ -16,6 +16,7 @@ package com.example.priva.myapplication;
  */
 public class Show extends AppCompatActivity implements View.OnClickListener {
     TextView text2;
+    Button btn;
     public String showanswer;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +25,16 @@ public class Show extends AppCompatActivity implements View.OnClickListener {
         text2 = (TextView) findViewById(R.id.textView2);
         Intent intent = getIntent();
         showanswer = getIntent().getStringExtra("movies");
-        Toast.makeText(this, showanswer, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, showanswer, Toast.LENGTH_SHORT).show();
         text2.setText(showanswer);
-
+        btn = (Button) findViewById(R.id.button);
+        btn.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
-
-
+        Intent j = new Intent(this,MainActivity.class);
+        startActivity(j);
     }
 }
