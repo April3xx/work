@@ -15,6 +15,8 @@ import android.widget.AdapterView;
 
 import android.widget.ArrayAdapter;
 
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 
 import android.widget.ListView;
@@ -22,7 +24,22 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener,View.OnClickListener {
+
+    String[] movies = {
+            "An American Horror Story Season 1",
+            "An American Horror Story Season 1",
+            "An American Horror Story Season 1",
+            "Game of Thrones Season 1",
+            "Game of Thrones Season 2",
+            "Game of Thrones Season 3",
+            "Game of Thrones Season 4",
+            "True Detective Season 1"
+
+    };
+    EditText text;
+    Button btn;
+
 
 
     @Override
@@ -30,28 +47,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
+        text = (EditText)findViewById(R.id.editText);
+        btn = (Button)findViewById(R.id.button2);
+        btn.setOnClickListener(this);
 
-
-        String[] movies = {"An American Horror Story Season 1",
-
-                "An American Horror Story Season 1",
-                "An American Horror Story Season 1",
-                "Game of Thrones Season 1",
-                "Game of Thrones Season 2",
-                "Game of Thrones Season 3",
-                "Game of Thrones Season 4",
-                "True Detective Season 1"
-
-        };
 
         ListAdapter listviewadapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, movies);
         ListView listView = (ListView) findViewById(R.id.listview);
         listView.setAdapter(listviewadapter);
         listView.setOnItemClickListener(this);
+
+
+
 
     }
 
@@ -67,5 +77,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
     }
+    @Override
+    public void onClick(View view) {
+        String New = text.getText().toString();
+
+    }
+//     public String[] newstring(String[] thestring) {
+//        int n = thestring.length;
+//
+//    }
 
 }
