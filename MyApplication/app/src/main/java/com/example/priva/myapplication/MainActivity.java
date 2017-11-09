@@ -82,9 +82,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String New = text.getText().toString();
 
     }
-//     public String[] newstring(String[] thestring) {
-//        int n = thestring.length;
-//
-//    }
+     public String[] newstring(String[] thestring) {
+        int n = thestring.length;
+    }
 
 }
